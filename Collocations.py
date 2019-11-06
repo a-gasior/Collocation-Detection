@@ -41,9 +41,6 @@ def calc_metrics(bi_grams, w1, w2):
         onetwo = w2[key[1]] - value
         twoone = w1[key[0]] - value
         twotwo = bigram_sum - value - onetwo - twoone
-#         onetwo = w1_sum - w1[key[0]] + w2[key[1]]
-#         twoone = w1[key[0]] + w2_sum - w2[key[1]]
-#         twotwo = w1_sum - w1[key[0]] + w2_sum - w2[key[1]]
         n = oneone + onetwo + twoone + twotwo
         eoneone = ((oneone + twoone)/n)*((oneone+onetwo)/n)*(n)
         eonetwo = ((onetwo + twotwo)/n)*((oneone + onetwo)/n)*(n)
@@ -54,7 +51,6 @@ def calc_metrics(bi_grams, w1, w2):
         s3 = ((twoone - etwoone)**2)/etwoone
         s4 = ((twotwo - etwotwo)**2)/etwotwo
         xsquare = s1+s2+s3+s4
-        #pmi = math.log((((value)/(bigram_sum))/((w1[key[0]]/w1_sum)*(w2[key[1]]/w2_sum))),2)
         pmi = math.log((((value)/(bigram_sum))/((w1[key[0]]/bigram_sum)*(w2[key[1]]/bigram_sum))),2)
         entry = (key, xsquare, pmi)
         table.append(entry)
