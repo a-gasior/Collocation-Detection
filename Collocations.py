@@ -1,5 +1,4 @@
 #Andrew Gasiorowski
-#CIS 411
 
 import math
 import re, sys
